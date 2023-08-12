@@ -25,6 +25,7 @@ public class Car {
 	    
 	    @Column(name = "price")
 	    private String price;
+		
 	    
 	    @Column(name = "image")
 	    private String image;
