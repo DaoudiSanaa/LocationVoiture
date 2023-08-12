@@ -26,19 +26,19 @@ public class Car {
 	    @Column(name = "price")
 	    private String price;
 	    
+	    @Column(name = "image")
+	    private String image;
+	    
 	    @Column(name = "nbplace")
 	    private int nbplace;
 	    
-	    @Column(name = "nbplace")
-	    private int statut;
-
+	    public Car() {
+			// TODO Auto-generated constructor stub
+		}
 	    
 
-
-		
-
-		public Car(int id, String namecar, String model, String matricule, String color, String price, int nbplace,
-				int statut) {
+		public Car(int id, String namecar, String model, String matricule, String color, String price, String image,
+				int nbplace) {
 			super();
 			this.id = id;
 			this.namecar = namecar;
@@ -46,28 +46,8 @@ public class Car {
 			this.matricule = matricule;
 			this.color = color;
 			this.price = price;
+			this.image = image;
 			this.nbplace = nbplace;
-			this.statut = statut;
-		}
-
-
-		public int getNbplace() {
-			return nbplace;
-		}
-
-
-		public void setNbplace(int nbplace) {
-			this.nbplace = nbplace;
-		}
-
-
-		public int getStatut() {
-			return statut;
-		}
-
-
-		public void setStatut(int statut) {
-			this.statut = statut;
 		}
 
 
@@ -111,7 +91,6 @@ public class Car {
 			this.color = color;
 		}
 
-
 		public String getPrice() {
 			return price;
 		}
@@ -120,10 +99,29 @@ public class Car {
 			this.price = price;
 		}
 
+		public String getImage() {
+			return image;
+		}
+
+		public void setImage(String image) {
+			this.image = image;
+		}
+
+		public int getNbplace() {
+			return nbplace;
+		}
+
+		public void setNbplace(int nbplace) {
+			this.nbplace = nbplace;
+		}
+
+
 		@Override
 		public String toString() {
 			return "Car [id=" + id + ", namecar=" + namecar + ", model=" + model + ", matricule=" + matricule
-					+ ", color=" + color + ", price=" + price + ", nbplace=" + nbplace + "]";
+					+ ", color=" + color + ", price=" + price + ", image=" + image + ", nbplace=" + nbplace + "]";
 		}
-	    
+		
+
+   
 }
