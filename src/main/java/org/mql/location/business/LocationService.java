@@ -9,7 +9,7 @@ import org.mql.location.models.RentCar;
 import org.mql.location.models.User;
 
 public interface LocationService {
-	public void saveCar(Car c);
+	public Car saveCar(Car c);
 	public List<Car> cars();
 	public Optional<Car> car(String matricule);
 	public void removeCar(Car c);

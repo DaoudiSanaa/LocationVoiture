@@ -52,9 +52,9 @@ public class LocationServiceDefault implements LocationService {
 
 
 	@Override
-	public Boolean modifyCar(Car c1, Car c2) {
-		// TODO Auto-generated method stub
-		return carRepository.update(c1,c2);
+	public Boolean modifyCar(Car c1,Car c2) { //
+		c2.setMatricule(c1.getMatricule());
+		return carRepository.save(c2) != null;
 	}
 
 
@@ -69,14 +69,9 @@ public class LocationServiceDefault implements LocationService {
 
 
 	@Override
-	public Optional<Client> client(String cin) {
-		// TODO Auto-generated method stub
+	public Optional<Client> client(String cin) { 
 		return clientRepository.findById(cin);
 	}
-
-
-
-	
 
 
 
@@ -91,8 +86,8 @@ public class LocationServiceDefault implements LocationService {
 
 	@Override
 	public boolean modifyClient(Client oldClient, Client newClient) {
-		// TODO Auto-generated method stub
-		return clientRepository.update(oldClient, newClient);
+		newClient.setCin(oldClient.getCin());
+		return clientRepository.save( newClient)!=null;
 	}
 
 
@@ -126,9 +121,8 @@ public class LocationServiceDefault implements LocationService {
 	}
 
 	@Override
-	public void saveCar(Car c) {
-		this.carRepository.save(c);
-		
+	public Car saveCar(Car c) {
+		return this.carRepository.save(c);
 	}
 
 	@Override
@@ -141,23 +135,28 @@ public class LocationServiceDefault implements LocationService {
 		this.rentCarRepository.save(a);
 	}
 
-	@Override
-	public List<RentCar> reservationClient(String cin) {
-		
-		return rentCarRepository.getReservationBycin(cin);
-	}
-
-	@Override
-	public List<RentCar> reservationCar(String matricule) {
-		
-		return rentCarRepository.getReservationBymatricule(matricule);
-	}
 
 	@Override
 	public boolean changeReserv(RentCar oldReservation, RentCar newReservation) {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+@Override
+public List<RentCar> reservationClient(String cin) {
+	// TODO Auto-generated method stub
+	Client c = new Client();
+	c.setCin(cin);
+	return rentCarRepository.findByClient(c);
+}
+
+@Override
+public List<RentCar> reservationCar(String matricule) {
+	// TODO Auto-generated method stub
+	Car c = new Car();
+	c.setMatricule(matricule);
+	return rentCarRepository.findByCar(c);
+}
 
 
 
