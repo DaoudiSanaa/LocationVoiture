@@ -25,7 +25,9 @@ public class Client {
     private String adress;
     @Column(name = "age")
     private String age;
-    
+    public Client() {
+		// TODO Auto-generated constructor stub
+	}
     
 	public Client(String cin, String name, String prenom, String mail, String tl, String sexe, String adress,
 			String age) {

@@ -8,6 +8,4 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface UserRepository extends JpaRepository<Car, Integer> {
 	
-	@Query("SELECT c FROM car c WHERE c.name LIKE :keyword% ")
-	public List<Car> findByKeyword(String keyword);
 }

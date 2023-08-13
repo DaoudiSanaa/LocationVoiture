@@ -16,7 +16,9 @@ public class User {
     private String gmail;
     @Column(name = "password")
     private String password;
-    
+    public User() {
+		// TODO Auto-generated constructor stub
+	}
     
 	public User(int id, String name, String gmail, String password) {
 		super();

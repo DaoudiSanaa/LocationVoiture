@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity(name = "RentCar")
@@ -13,11 +15,13 @@ public class RentCar {
     @Id
     private int id_RentCar;
     
-    @Column(name = "idCar")
-    private int idCar;
+    @ManyToOne
+	@JoinColumn(name = "Car_Id")
+    private Car car;
 
-    @Column(name = "cinClient")
-    private String cinClient;
+    @ManyToOne
+	@JoinColumn(name = "client_ID")
+    private Client client;
     
     @Column(name = "prix")
     private String prixtotal;
@@ -28,19 +32,60 @@ public class RentCar {
     
     @Column(name = "dateReturnCar")
     private Date dateReturnCar;
-    
+    public RentCar() {
+		// TODO Auto-generated constructor stub
+	}
     
 
-	public RentCar(int id_RentCar, int idCar, String cinClient, String prixtotal, Date dateReservationCar,
+	
+
+	
+	public RentCar(int id_RentCar, Car car, Client client, String prixtotal, Date dateReservationCar,
 			Date dateReturnCar) {
 		super();
 		this.id_RentCar = id_RentCar;
-		this.idCar = idCar;
-		this.cinClient = cinClient;
+		this.car = car;
+		this.client = client;
 		this.prixtotal = prixtotal;
 		this.dateReservationCar = dateReservationCar;
 		this.dateReturnCar = dateReturnCar;
 	}
+
+
+
+
+
+	public Car getCar() {
+		return car;
+	}
+
+
+
+
+
+	public void setCar(Car car) {
+		this.car = car;
+	}
+
+
+
+
+
+	public Client getClient() {
+		return client;
+	}
+
+
+
+
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+
+
+
 
 	public int getId_RentCar() {
 		return id_RentCar;
@@ -50,21 +95,6 @@ public class RentCar {
 		this.id_RentCar = id_RentCar;
 	}
 
-	public int getIdCar() {
-		return idCar;
-	}
-
-	public void setIdCar(int idCar) {
-		this.idCar = idCar;
-	}
-
-	public String getCinClient() {
-		return cinClient;
-	}
-
-	public void setCinClient(String cinClient) {
-		this.cinClient = cinClient;
-	}
 
 	public String getPrixtotal() {
 		return prixtotal;
@@ -90,11 +120,17 @@ public class RentCar {
 		this.dateReturnCar = dateReturnCar;
 	}
 
+
+
+
+
 	@Override
 	public String toString() {
-		return "RentCar [id_RentCar=" + id_RentCar + ", idCar=" + idCar + ", cinClient=" + cinClient + ", prixtotal="
-				+ prixtotal + ", dateReservationCar=" + dateReservationCar + ", dateReturnCar=" + dateReturnCar + "]";
+		return "RentCar [id_RentCar=" + id_RentCar + ", car=" + car + ", client=" + client + ", prixtotal=" + prixtotal
+				+ ", dateReservationCar=" + dateReservationCar + ", dateReturnCar=" + dateReturnCar + "]";
 	}
+
+	
 
     
 	
