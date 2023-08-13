@@ -39,14 +39,11 @@ public class LocationServiceDefault implements LocationService {
 	}
 
 
-	
-
-
-
 	@Override
-	public void removeCar(Car c) {
+	public Car removeCar(Car c) {
 		// TODO Auto-generated method stub
 		 carRepository.delete(c);
+		 return c;
 	}
 
 
@@ -65,9 +62,6 @@ public class LocationServiceDefault implements LocationService {
 		return clientRepository.findAll();
 	}
 
-
-
-
 	@Override
 	public Optional<Client> client(String cin) { 
 		return clientRepository.findById(cin);
@@ -76,13 +70,12 @@ public class LocationServiceDefault implements LocationService {
 
 
 	@Override
-	public void removeClient(Client c) {
+	public Client removeClient(Client c) {
 		// TODO Auto-generated method stub
 		clientRepository.delete(c);
+		return c;
 		
 	}
-
-
 
 	@Override
 	public boolean modifyClient(Client oldClient, Client newClient) {
@@ -90,7 +83,58 @@ public class LocationServiceDefault implements LocationService {
 		return clientRepository.save( newClient)!=null;
 	}
 
+	@Override
+	public List<RentCar> reservations() {
+		// TODO Auto-generated method stub
+		return rentCarRepository.findAll();
+	}
 
+
+	@Override
+	public RentCar removeReservation(RentCar r) {
+		// TODO Auto-generated method stub
+		 rentCarRepository.delete(r);
+		 return r;
+	}
+
+	@Override
+	public Car saveCar(Car c) {
+		return this.carRepository.save(c);
+	}
+
+	@Override
+	public Client saveClient(Client a) {
+		return this.clientRepository.save(a);
+	}
+
+	@Override
+	public RentCar saveReservation(RentCar a) {
+		return this.rentCarRepository.save(a);
+	}
+
+
+	@Override
+	public boolean changeReserv(RentCar oldReservation, RentCar newReservation) {
+
+		newReservation.setId_RentCar(oldReservation.getId_RentCar());
+		return rentCarRepository.save(newReservation) != null;
+	}
+
+	@Override
+	public List<RentCar> reservationClient(String cin) {
+		// TODO Auto-generated method stub
+		Client c = new Client();
+		c.setCin(cin);
+		return rentCarRepository.findByClient(c);
+	}
+
+	@Override
+	public List<RentCar> reservationCar(String matricule) {
+		// TODO Auto-generated method stub
+		Car c = new Car();
+		c.setMatricule(matricule);
+		return rentCarRepository.findByCar(c);
+	}
 
 	@Override
 	public boolean authentication(User a) {
@@ -101,62 +145,6 @@ public class LocationServiceDefault implements LocationService {
 
 
 
-	@Override
-	public List<RentCar> reservations() {
-		// TODO Auto-generated method stub
-		return rentCarRepository.findAll();
-	}
-
-
-
-
-
-
-
-
-	@Override
-	public void removeReservation(RentCar r) {
-		// TODO Auto-generated method stub
-		 rentCarRepository.delete(r);
-	}
-
-	@Override
-	public Car saveCar(Car c) {
-		return this.carRepository.save(c);
-	}
-
-	@Override
-	public void saveClient(Client a) {
-		this.clientRepository.save(a);
-	}
-
-	@Override
-	public void saveReservation(RentCar a) {
-		this.rentCarRepository.save(a);
-	}
-
-
-	@Override
-	public boolean changeReserv(RentCar oldReservation, RentCar newReservation) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-@Override
-public List<RentCar> reservationClient(String cin) {
-	// TODO Auto-generated method stub
-	Client c = new Client();
-	c.setCin(cin);
-	return rentCarRepository.findByClient(c);
-}
-
-@Override
-public List<RentCar> reservationCar(String matricule) {
-	// TODO Auto-generated method stub
-	Car c = new Car();
-	c.setMatricule(matricule);
-	return rentCarRepository.findByCar(c);
-}
 
 
 

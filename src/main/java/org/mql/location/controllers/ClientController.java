@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.mql.location.business.LocationService;
-import org.mql.location.models.Car;
+import org.mql.location.models.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,45 +16,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/cars")
+@RequestMapping("/clients")
 @CrossOrigin("*")
-public class CarController {
+public class ClientController {
 	@Autowired
 	public LocationService service;
 	
-	public CarController() {
+	public ClientController() {
 	}
 	
 	@PostMapping
-	public Car addCar(@RequestBody Car car) {
-		return service.saveCar(car);
+	public Client addClient(@RequestBody Client c) {
+		return service.saveClient(c);
 	}
 	
-	@GetMapping("/{matricule}")
-	public Optional<Car> getCarById(@PathVariable String matricule) {   
-		return service.car(matricule);
+	@GetMapping("/{cin}")
+	public Optional<Client> getClientById(@PathVariable String cin) {   
+		return service.client(cin);
 	}
+	
 	@GetMapping
-	public List<Car> getAll() {
-		return service.cars();
+	public List<Client> getAll() {
+		return service.clients();
 	}
-	
 	@DeleteMapping 
-	public Car deleteReservation(Car car) {
-		return service.removeCar(car);
+	public Client deleteClient(Client c) {
+		return service.removeClient(c);
 	}
 }
-// https://reqbin.com/
-/* 
-	public List<Voiture> all();
-	public Voiture get(Long id);
-	public Voiture post(Voiture v);
-	public Voiture put(Voiture v);
-	public Voiture delete(Long id);
-	public List<Voiture> loadByAgence(long a);
-	public ResponseEntity<byte[]> download(long recid);
-	public String upload(MultipartFile file, String recid);
- * 
- * 
- * 
-*/
