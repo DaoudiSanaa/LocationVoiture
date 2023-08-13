@@ -10,15 +10,13 @@ import javax.persistence.Table;
 public class Car {
 	  
 	    @Id
-	    private int id;
+	    @Column(name = "matricule")
+	    private String matricule;
 	    @Column(name = "namecar")
 	    private String namecar;
 
 	    @Column(name = "model")
 	    private String model;
-
-	    @Column(name = "matricule")
-	    private String matricule;
 
 	    @Column(name = "color")
 	    private String color;
@@ -38,10 +36,10 @@ public class Car {
 		}
 	    
 
-		public Car(int id, String namecar, String model, String matricule, String color, String price, String image,
+		public Car(String namecar, String model, String matricule, String color, String price, String image,
 				int nbplace) {
 			super();
-			this.id = id;
+			
 			this.namecar = namecar;
 			this.model = model;
 			this.matricule = matricule;
@@ -52,14 +50,7 @@ public class Car {
 		}
 
 
-		public int getId() {
-			return id;
-		}
-
-		public void setId(int id) {
-			this.id = id;
-		}
-
+	
 		public String getNamecar() {
 			return namecar;
 		}
@@ -119,7 +110,7 @@ public class Car {
 
 		@Override
 		public String toString() {
-			return "Car [id=" + id + ", namecar=" + namecar + ", model=" + model + ", matricule=" + matricule
+			return "Car [ namecar=" + namecar + ", model=" + model + ", matricule=" + matricule
 					+ ", color=" + color + ", price=" + price + ", image=" + image + ", nbplace=" + nbplace + "]";
 		}
 		

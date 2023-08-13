@@ -13,11 +13,11 @@ public class RentCar {
     @Id
     private int id_RentCar;
     
-    @Column(name = "idCar")
-    private int idCar;
+    @Column(name = "matricule")
+    private int matricule;
 
-    @Column(name = "cinClient")
-    private String cinClient;
+    @Column(name = "cin")
+    private String cin;
     
     @Column(name = "prix")
     private String prixtotal;
@@ -31,15 +31,32 @@ public class RentCar {
     
     
 
-	public RentCar(int id_RentCar, int idCar, String cinClient, String prixtotal, Date dateReservationCar,
+	
+	public RentCar(int id_RentCar, int matricule, String cin, String prixtotal, Date dateReservationCar,
 			Date dateReturnCar) {
 		super();
 		this.id_RentCar = id_RentCar;
-		this.idCar = idCar;
-		this.cinClient = cinClient;
+		this.matricule = matricule;
+		this.cin = cin;
 		this.prixtotal = prixtotal;
 		this.dateReservationCar = dateReservationCar;
 		this.dateReturnCar = dateReturnCar;
+	}
+
+	public int getMatricule() {
+		return matricule;
+	}
+
+	public void setMatricule(int matricule) {
+		this.matricule = matricule;
+	}
+
+	public String getCin() {
+		return cin;
+	}
+
+	public void setCin(String cin) {
+		this.cin = cin;
 	}
 
 	public int getId_RentCar() {
@@ -50,21 +67,6 @@ public class RentCar {
 		this.id_RentCar = id_RentCar;
 	}
 
-	public int getIdCar() {
-		return idCar;
-	}
-
-	public void setIdCar(int idCar) {
-		this.idCar = idCar;
-	}
-
-	public String getCinClient() {
-		return cinClient;
-	}
-
-	public void setCinClient(String cinClient) {
-		this.cinClient = cinClient;
-	}
 
 	public String getPrixtotal() {
 		return prixtotal;
@@ -92,9 +94,12 @@ public class RentCar {
 
 	@Override
 	public String toString() {
-		return "RentCar [id_RentCar=" + id_RentCar + ", idCar=" + idCar + ", cinClient=" + cinClient + ", prixtotal="
+		return "RentCar [id_RentCar=" + id_RentCar + ", matricule=" + matricule + ", cin=" + cin + ", prixtotal="
 				+ prixtotal + ", dateReservationCar=" + dateReservationCar + ", dateReturnCar=" + dateReturnCar + "]";
 	}
+	
+
+	
 
     
 	

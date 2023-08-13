@@ -15,13 +15,16 @@ public interface RentCarRepository extends JpaRepository<RentCar, Integer>{
 	    @Query("DELETE FROM reserv u WHERE u.mail = ?1") //
 	    int deletereservation(String mail);
 
-	    @Query("SELECT u FROM reserv u WHERE u.mail = ?1")
-	    public List<RentCar> getReservationByMail(String mail);
+	    @Query("SELECT u FROM rentCar u WHERE u.cin = ?1")
+	    public List<RentCar> getReservationBycin(String cin);
 
+	    @Query("SELECT u FROM rentCar u WHERE u.matricule = ?1")
+	    public List<RentCar> getReservationBymatricule(String matricule);
 	    //////// modifier la date de reservation
 
 	    @Modifying
 	    @Transactional
-	    @Query("UPDATE reserv u SET   u.date = ?1  WHERE u.mail = ?2")
-	    void update(String date , String mail);
+	    @Query("UPDATE rentCar u SET   u.date = ?1  WHERE u.mail = ?2")
+	    void update(RentCar r1 , RentCar r2);
+	    
 }
