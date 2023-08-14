@@ -142,6 +142,13 @@ public class LocationServiceDefault implements LocationService {
 		return false;
 	}
 
+	@Override
+	public void removeCarByMatricule(String matricule) {
+		// TODO Auto-generated method stub
+		carRepository.deleteById(matricule);
+		
+	}
+
 
 
 

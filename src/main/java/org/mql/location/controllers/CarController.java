@@ -22,13 +22,22 @@ public class CarController {
 	@Autowired
 	public LocationService service;
 	
-	public CarController() {
-	}
+
+    @Autowired
+    public CarController(LocationService service) {
+        this.service = service;
+    }
 	
 	@PostMapping
 	public Car addCar(@RequestBody Car car) {
 		return service.saveCar(car);
 	}
+	
+	  @PostMapping("/update")
+	   public Boolean update(@RequestBody Car c1, @RequestBody Car c2) {
+	        return service.modifyCar(c1, c2);
+	   }
+
 	
 	@GetMapping("/{matricule}")
 	public Optional<Car> getCarById(@PathVariable String matricule) {   
@@ -38,10 +47,16 @@ public class CarController {
 	public List<Car> getAll() {
 		return service.cars();
 	}
-	
-	@DeleteMapping 
+
+	@DeleteMapping
 	public Car deleteReservation(Car car) {
 		return service.removeCar(car);
+	}
+
+	@DeleteMapping("/{matricule}")
+	public Optional<Car> deleteCar(@PathVariable String matricule) {
+		service.removeCarByMatricule(matricule);
+		return getCarById(matricule);
 	}
 }
 // https://reqbin.com/

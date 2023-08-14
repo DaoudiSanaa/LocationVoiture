@@ -32,6 +32,7 @@ public interface LocationService {
 	public List<RentCar> reservationCar( String matricule);
 	public boolean changeReserv(RentCar oldReservation, RentCar newReservation);
 	public RentCar removeReservation(RentCar r);
+	public void removeCarByMatricule(String matricule);
 	
 	
 	

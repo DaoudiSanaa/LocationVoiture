@@ -20,8 +20,9 @@ public class UserController {
 	@Autowired
 	public LocationService service;
 	
-	public UserController() {
-	}
+	public UserController(LocationService service) {
+        this.service = service;
+    }
 	
 	
 }

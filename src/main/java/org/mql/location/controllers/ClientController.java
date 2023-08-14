@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.mql.location.business.LocationService;
+import org.mql.location.models.Car;
 import org.mql.location.models.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -22,13 +23,20 @@ public class ClientController {
 	@Autowired
 	public LocationService service;
 	
-	public ClientController() {
-	}
+	public ClientController(LocationService service) {
+        this.service = service;
+    }
 	
 	@PostMapping
 	public Client addClient(@RequestBody Client c) {
 		return service.saveClient(c);
 	}
+	@PostMapping("/update")
+	public Boolean update(@RequestBody Client c1,@RequestBody Client c2) {
+		
+		return service.modifyClient(c1, c2);	 
+	}
+	
 	
 	@GetMapping("/{cin}")
 	public Optional<Client> getClientById(@PathVariable String cin) {   

@@ -4,6 +4,7 @@ import java.util.List;
 
 
 import org.mql.location.business.LocationService;
+import org.mql.location.models.Car;
 import org.mql.location.models.RentCar;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -22,25 +23,31 @@ public class RentCarController {
 	@Autowired
 	public LocationService service;
 	
-	public RentCarController() {
-	}
+	public RentCarController(LocationService service) {
+        this.service = service;
+    }
 	
 	@PostMapping
 	public RentCar addCar(@RequestBody RentCar rentCar) {
 		return service.saveReservation(rentCar);
+	}
+	@PostMapping("/update")
+	public Boolean update(@RequestBody RentCar c1,@RequestBody RentCar c2) {
+		
+		return service.changeReserv(c1, c2);	 
 	}
 	
 	@GetMapping
 	public List<RentCar> getAll() {
 		return service.reservations();
 	}
-	@GetMapping
-	public List<RentCar> getReservationClient(String cin) {
+	@GetMapping("/{cin}")
+	public List<RentCar> getReservationClient(@PathVariable String cin) {
 		return service.reservationClient(cin);
 	}
 	
-	@GetMapping
-	public List<RentCar> getReservationCar(String matr) {
+	@GetMapping("/{matr}")
+	public List<RentCar> getReservationCar(@PathVariable String matr) {
 		return service.reservationClient(matr);
 	}
 	@DeleteMapping 
