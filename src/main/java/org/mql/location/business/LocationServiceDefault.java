@@ -18,8 +18,11 @@ import org.springframework.stereotype.Service;
 public class LocationServiceDefault implements LocationService {
 	@Autowired
 	private CarRepository carRepository;
+	@Autowired
 	private ClientRepository clientRepository;
+	@Autowired
 	private UserRepository userRepository;
+	@Autowired
 	private RentCarRepository rentCarRepository;
 	
 	public LocationServiceDefault() {
