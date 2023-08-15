@@ -48,7 +48,7 @@ public class RentCarController {
 	
 	@GetMapping("/{matr}")
 	public List<RentCar> getReservationCar(@PathVariable String matr) {
-		return service.reservationClient(matr);
+		return service.reservationCar(matr);
 	}
 	@DeleteMapping 
 	public RentCar deleteReservation(RentCar rentCar) {

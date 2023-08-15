@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,21 +20,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/cars")
 @CrossOrigin("*")
 public class CarController {
+	
 	@Autowired
 	public LocationService service;
 	
+	public CarController() {
+		// TODO Auto-generated constructor stub
+	}
 
-    @Autowired
-    public CarController(LocationService service) {
-        this.service = service;
-    }
 	
 	@PostMapping
 	public Car addCar(@RequestBody Car car) {
 		return service.saveCar(car);
 	}
 	
-	  @PostMapping("/update")
+	  @PutMapping
 	   public Boolean update(@RequestBody Car c1, @RequestBody Car c2) {
 	        return service.modifyCar(c1, c2);
 	   }

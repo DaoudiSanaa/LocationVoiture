@@ -119,7 +119,7 @@ public class LocationServiceDefault implements LocationService {
 	@Override
 	public boolean changeReserv(RentCar oldReservation, RentCar newReservation) {
 
-		newReservation.setId_RentCar(oldReservation.getId_RentCar());
+		newReservation.setId_rentcar(oldReservation.getId_rentcar());
 		return rentCarRepository.save(newReservation) != null;
 	}
 
