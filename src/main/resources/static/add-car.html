@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="js/fetch.js"></script>
+</head>
+	<body>
+	<h1>Nouvel voiture</h1>
+	<form class="form">
+		<div>
+			<span>matricule :</span>
+			<input type="text" id="matricule"/>
+			<span>namecar :</span>
+			<input type="text" id="namecar"/>
+			<span>color:</span>
+			<input type="text" id="color"/>
+			<span>model:</span>
+			<input type="text" id="model"/>
+			<span>image:</span>
+			<input type="text" id="image"/>
+			<span>price :</span>
+			<input type="text" id="price"/>
+			<span>nbplace :</span>
+			<input type="text" id="nbplace"/>
+			
+		</div>
+		<div>
+			<input type="button" value="Enregistrer" onclick="addCar()" />
+		</div>
+	</form>
+	<div id="result">
+		
+	</div>
+	</body>
+</html>

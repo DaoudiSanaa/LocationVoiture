@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="js/fetch.js"></script>
+</head>
+	<body>
+	<h1>Nouvel reservation</h1>
+	<form class="form">
+		<div>
+			
+			<span>car :</span>
+			<input type="text" id="car"/>
+			<span>client:</span>
+			<input type="text" id="client"/>
+			<span>dateReservationCar:</span>
+			<input type="text" id="dateReservationCar"/>
+			<span>dateReturnCar:</span>
+			<input type="text" id="dateReturnCar"/>
+			<span>prixtotal :</span>
+			<input type="text" id="prixtotal"/>
+			
+		</div>
+		<div>
+			<input type="button" value="Enregistrer" onclick="addRentCar()" />
+		</div>
+	</form>
+	<div id="result">
+		
+	</div>
+	</body>
+</html>
