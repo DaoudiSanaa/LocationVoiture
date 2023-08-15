@@ -34,15 +34,14 @@ public class Car {
 	    public Car() {
 			// TODO Auto-generated constructor stub
 		}
-	    
 
-		public Car(String namecar, String model, String matricule, String color, String price, String image,
+	
+		public Car(String matricule, String namecar, String model, String color, String price, String image,
 				int nbplace) {
 			super();
-			
+			this.matricule = matricule;
 			this.namecar = namecar;
 			this.model = model;
-			this.matricule = matricule;
 			this.color = color;
 			this.price = price;
 			this.image = image;
@@ -50,7 +49,6 @@ public class Car {
 		}
 
 
-	
 		public String getNamecar() {
 			return namecar;
 		}

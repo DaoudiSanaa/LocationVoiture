@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -12,8 +14,10 @@ import javax.persistence.Table;
 @Entity(name = "RentCar")
 @Table(name = "RentCar")
 public class RentCar {
+	
     @Id
-    private int id_RentCar;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id_rentcar;
     
     @ManyToOne
 	@JoinColumn(name = "Car_Id")
@@ -40,10 +44,10 @@ public class RentCar {
 	
 
 	
-	public RentCar(int id_RentCar, Car car, Client client, String prixtotal, Date dateReservationCar,
+	public RentCar( Car car, Client client, String prixtotal, Date dateReservationCar,
 			Date dateReturnCar) {
 		super();
-		this.id_RentCar = id_RentCar;
+		
 		this.car = car;
 		this.client = client;
 		this.prixtotal = prixtotal;
@@ -51,6 +55,26 @@ public class RentCar {
 		this.dateReturnCar = dateReturnCar;
 	}
 
+
+
+
+
+	public RentCar(Integer id_RentCar, Car car, Client client, String prixtotal, Date dateReservationCar,
+			Date dateReturnCar) {
+		super();
+		this.id_rentcar = id_RentCar;
+		this.car = car;
+		this.client = client;
+		this.prixtotal = prixtotal;
+		this.dateReservationCar = dateReservationCar;
+		this.dateReturnCar = dateReturnCar;
+	}
+
+
+
+
+
+	
 
 
 
@@ -87,13 +111,24 @@ public class RentCar {
 
 
 
-	public int getId_RentCar() {
-		return id_RentCar;
+	
+
+	
+
+	public Integer getId_rentcar() {
+		return id_rentcar;
 	}
 
-	public void setId_RentCar(int id_RentCar) {
-		this.id_RentCar = id_RentCar;
+
+
+
+
+	public void setId_rentcar(Integer id_rentcar) {
+		this.id_rentcar = id_rentcar;
 	}
+
+
+
 
 
 	public String getPrixtotal() {
@@ -126,7 +161,7 @@ public class RentCar {
 
 	@Override
 	public String toString() {
-		return "RentCar [id_RentCar=" + id_RentCar + ", car=" + car + ", client=" + client + ", prixtotal=" + prixtotal
+		return "RentCar [id_RentCar=" + id_rentcar + ", car=" + car + ", client=" + client + ", prixtotal=" + prixtotal
 				+ ", dateReservationCar=" + dateReservationCar + ", dateReturnCar=" + dateReturnCar + "]";
 	}
 

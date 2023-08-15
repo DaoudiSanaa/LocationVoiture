@@ -12,26 +12,27 @@ public interface LocationService {
 	public Car saveCar(Car c);
 	public List<Car> cars();
 	public Optional<Car> car(String matricule);
-	public void removeCar(Car c);
+	public Car removeCar(Car c);
 	public Boolean modifyCar(Car c1,Car c2);
 	
 	
 	public List<Client> clients();
 	public Optional<Client> client(String cin);
-	public void saveClient(Client a);
-	public void removeClient(Client c);
+	public Client saveClient(Client a);
+	public Client removeClient(Client c);
 	public boolean modifyClient(Client oldClient, Client newClient);
 	
 
 	
 	public boolean authentication(User a);
 	
-	public void saveReservation(RentCar a);
+	public RentCar saveReservation(RentCar a);
 	public List<RentCar> reservations();
 	public List<RentCar> reservationClient( String cin);
 	public List<RentCar> reservationCar( String matricule);
 	public boolean changeReserv(RentCar oldReservation, RentCar newReservation);
-	public void removeReservation(RentCar r);
+	public RentCar removeReservation(RentCar r);
+	public void removeCarByMatricule(String matricule);
 	
 	
 	
