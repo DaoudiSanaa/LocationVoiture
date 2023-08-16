@@ -151,6 +151,30 @@ public class LocationServiceDefault implements LocationService {
 		carRepository.deleteById(matricule);
 		
 	}
+	
+	
+
+	public User addUser(User user) {
+		this.userRepository.save(user);
+		return user;
+	}
+
+	public List<User> getAllUsers() {
+		return userRepository.findAll();
+	}
+
+	public User getUserByEmail(String gmail) {
+		return userRepository.findByGmail(gmail);
+	}
+
+	public User login(String email, String pwd) {
+		User user = getUserByEmail(email);
+		if(user !=  null && user.getPassword().equals(pwd)) {
+			return user;
+		}
+		return null;
+	}
+
 
 
 

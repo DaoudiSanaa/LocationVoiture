@@ -1,22 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion Hotel</title>
-    <script src="js/xhr.js"></script>
+	<meta charset="UTF-8">
+	<title>location voiture</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/index.js"></script>
 </head>
 <body>
-<h1>Gestion location voiture </h1>
-<button onclick="getAllCars()">liste de voiture</button>
+	<div class="login-ctr" id="login-ctr">
+		<div>
+			<header>Connectez vous à votre compte</header>
+			<input id="gmail" type="text" placeholder="Adress Email">
+			<input id="password" type="password" placeholder="Mot de passe">
+			<button onclick="login()">Se Connectez</button>
+		</div>
+		<div>
+			<div>
+				<!-- Opacité -->
+			</div>
+		</div>
+	</div>
 
-<button onclick="getAllClients()">liste de clients</button>
-
-  <button onclick="getAllRentCar()">liste de reservation</button>
-    <table border="1" id="table">
-   
-     
-    </table>
-
+	<div class="account" id="account">
+		<header id="user-greetings"></header>
+	</div>
 </body>
 </html>

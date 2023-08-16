@@ -7,6 +7,7 @@ import org.mql.location.dao.CarRepository;
 import org.mql.location.models.Car;
 import org.mql.location.models.Client;
 import org.mql.location.models.RentCar;
+import org.mql.location.models.User;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -45,6 +46,11 @@ public class LocationVoitureApplication {
 			System.err.println(services.reservationClient("cin1"));*/
 			//services.saveReservation(rent);
 			//System.err.println(services.cars());
+			
+			/*User user = new User(1, "acha", "acha@gmail.com", "123");
+			User user1 = new User(2, "ma", "ma@gmail.com", "123");
+			services.addUser(user);
+			services.addUser(user1);*/
 		};
 		
 	};

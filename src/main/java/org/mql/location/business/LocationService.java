@@ -34,6 +34,12 @@ public interface LocationService {
 	public RentCar removeReservation(RentCar r);
 	public void removeCarByMatricule(String matricule);
 	
+	public User addUser(User user);
+	public List<User> getAllUsers();
+	public User getUserByEmail(String email);
+	public User login(String email, String pwd);
+	
+	
 	
 	
 
